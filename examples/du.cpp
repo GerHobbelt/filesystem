@@ -14,7 +14,13 @@ namespace fs = std::filesystem;
 namespace fs = ghc::filesystem;
 #endif
 
-int main(int argc, char* argv[])
+
+
+#if defined(BUILD_MONOLITHIC)
+#define main(cnt, arr)      fs_du_main(cnt, arr)
+#endif
+
+int main(int argc, const char** argv)
 {
 #ifdef GHC_FILESYSTEM_VERSION
     fs::u8arguments u8guard(argc, argv);

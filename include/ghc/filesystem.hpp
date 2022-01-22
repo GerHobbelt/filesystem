@@ -1252,7 +1252,7 @@ typedef basic_fstream<wchar_t> wfstream;
 class GHC_FS_API_CLASS u8arguments
 {
 public:
-    u8arguments(int& argc, char**& argv);
+    u8arguments(int& argc, const char**& argv);
     ~u8arguments()
     {
         _refargc = _argc;
@@ -1263,13 +1263,13 @@ public:
 
 private:
     int _argc;
-    char** _argv;
-    int& _refargc;
-    char**& _refargv;
+	const char** _argv;
+	int& _refargc;
+	const char**& _refargv;
     bool _isvalid;
 #ifdef GHC_OS_WINDOWS
     std::vector<std::string> _args;
-    std::vector<char*> _argp;
+    std::vector<const char*> _argp;
 #endif
 };
 
@@ -2379,7 +2379,7 @@ GHC_INLINE file_status status_ex(const path& p, std::error_code& ec, file_status
 
 }  // namespace detail
 
-GHC_INLINE u8arguments::u8arguments(int& argc, char**& argv)
+GHC_INLINE u8arguments::u8arguments(int& argc, const char**& argv)
     : _argc(argc)
     , _argv(argv)
     , _refargc(argc)
@@ -2388,12 +2388,12 @@ GHC_INLINE u8arguments::u8arguments(int& argc, char**& argv)
 {
 #ifdef GHC_OS_WINDOWS
     LPWSTR* p;
-    p = ::CommandLineToArgvW(::GetCommandLineW(), &argc);
+    p = ::CommandLineToArgvW(::GetCommandLineW(), (int *)&argc);
     _args.reserve(static_cast<size_t>(argc));
     _argp.reserve(static_cast<size_t>(argc));
     for (size_t i = 0; i < static_cast<size_t>(argc); ++i) {
         _args.push_back(detail::toUtf8(std::wstring(p[i])));
-        _argp.push_back((char*)_args[i].data());
+        _argp.push_back(_args[i].data());
     }
     argv = _argp.data();
     ::LocalFree(p);
