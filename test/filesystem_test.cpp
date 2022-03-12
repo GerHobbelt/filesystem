@@ -214,7 +214,7 @@ static void generateFile(const fs::path& pathname, int withSize = -1)
 }
 
 #ifdef GHC_OS_WINDOWS
-inline bool isWow64Proc()
+static inline bool isWow64Proc()
 {
     typedef BOOL(WINAPI * IsWow64Process_t)(HANDLE, PBOOL);
     BOOL bIsWow64 = FALSE;
@@ -1199,7 +1199,7 @@ TEST_CASE("fs.class.filesystem_error - class filesystem_error", "[filesystem][fi
     CHECK(fse.path2() == "some/other");
 }
 
-constexpr fs::perms constExprOwnerAll()
+static constexpr fs::perms constExprOwnerAll()
 {
     return fs::perms::owner_read | fs::perms::owner_write | fs::perms::owner_exec;
 }
