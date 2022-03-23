@@ -2388,7 +2388,7 @@ GHC_INLINE u8arguments::u8arguments(int& argc, const char**& argv)
 {
 #ifdef GHC_OS_WINDOWS
     LPWSTR* p;
-    p = ::CommandLineToArgvW(::GetCommandLineW(), (int *)&argc);
+    p = ::CommandLineToArgvW(::GetCommandLineW(), &argc);
     _args.reserve(static_cast<size_t>(argc));
     _argp.reserve(static_cast<size_t>(argc));
     for (size_t i = 0; i < static_cast<size_t>(argc); ++i) {
