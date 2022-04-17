@@ -461,7 +461,7 @@ C++11/14. Starting with v1.1.0 these are supported when compiling
 `ghc::filesystem` under C++17 of C++20.
 
 Starting with v1.5.2 `ghc::filesystem` will try to allow the use of
-`std::experimental::basic_string_view` where it detects is availability.
+`std::experimental::basic_string_view` where it detects its availability.
 Additionally if you have a `basic_string_view` compatible c++11
 implementation it can be used instead of `std::basic_string_view`
 by defining `GHC_HAS_CUSTOM_STRING_VIEW` and importing the
@@ -568,7 +568,7 @@ the standard.
 As symbolic links on Windows, while being supported more or less since
 Windows Vista (with some strict security constraints) and fully since some earlier
 build of Windows 10, when "Developer Mode" is activated, are at time of writing
-(2018) rarely used, still they are supported wiit th this implementation.
+(2018) rarely used, still they are supported with this implementation.
 
 #### Permissions
 
