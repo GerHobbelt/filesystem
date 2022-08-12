@@ -256,7 +256,7 @@
 #endif
 
 #if !defined(GHC_OS_WINDOWS) && !defined(PATH_MAX)
-#define PATH_MAX 4096
+#define PATH_MAX 1024
 #endif
 
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
