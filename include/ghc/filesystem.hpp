@@ -1864,7 +1864,7 @@ namespace detail {
 
 GHC_INLINE bool equals_simple_insensitive(const path::value_type* str1, const path::value_type* str2)
 {
-#ifdef GHC_OS_WINDOWS
+#if defined(GHC_OS_WINDOWS) || defined(GHC_NO_STRCASECMP)
 #ifdef __GNUC__
     while (::tolower((unsigned char)*str1) == ::tolower((unsigned char)*str2++)) {
         if (*str1++ == 0)
