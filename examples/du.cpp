@@ -35,7 +35,7 @@ int main(int argc, const char** argv)
     }
     fs::path dir{"."};
     if(argc == 2) {
-        dir = fs::u8path(argv[1]);
+        dir = fs::path(std::u8string(argv[1]));
     }
 
     uint64_t totalSize = 0;
