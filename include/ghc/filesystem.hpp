@@ -308,7 +308,7 @@
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // ghc::filesystem version in decimal (major * 10000 + minor * 100 + patch)
-#define GHC_FILESYSTEM_VERSION 10512L
+#define GHC_FILESYSTEM_VERSION 10513L
 
 #if !defined(GHC_WITH_EXCEPTIONS) && (defined(__EXCEPTIONS) || defined(__cpp_exceptions) || defined(_CPPUNWIND))
 #define GHC_WITH_EXCEPTIONS
@@ -3369,10 +3369,14 @@ GHC_INLINE path::impl_string_type::const_iterator path::iterator::increment(cons
             }
         }
         else {
+#ifdef GHC_OS_WINDOWS
             if (fromStart && i != _last && *i == ':') {
                 ++i;
             }
             else {
+#else
+            {
+#endif
                 i = std::find(i, _last, preferred_separator);
             }
         }
