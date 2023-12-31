@@ -308,7 +308,7 @@
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // ghc::filesystem version in decimal (major * 10000 + minor * 100 + patch)
-#define GHC_FILESYSTEM_VERSION 10513L
+#define GHC_FILESYSTEM_VERSION 10515L
 
 #if !defined(GHC_WITH_EXCEPTIONS) && (defined(__EXCEPTIONS) || defined(__cpp_exceptions) || defined(_CPPUNWIND))
 #define GHC_WITH_EXCEPTIONS
@@ -3170,7 +3170,7 @@ GHC_INLINE path path::extension() const
         auto iter = end();
         const auto& fn = *--iter;
         impl_string_type::size_type pos = fn._path.rfind('.');
-        if (pos != std::string::npos && pos > 0) {
+        if (pos != std::string::npos && pos > 0 && fn._path != "..") {
             return path(fn._path.substr(pos), native_format);
         }
     }
