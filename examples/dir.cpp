@@ -45,12 +45,12 @@ int main(int argc, const char** argv)
     fs::u8arguments u8guard(argc, argv);
     if (!u8guard.valid()) {
         std::cerr << "Invalid character encoding, UTF-8 based encoding needed." << std::endl;
-        std::exit(EXIT_FAILURE);
+        return EXIT_FAILURE;
     }
 #endif
     if (argc > 2) {
         std::cerr << "USAGE: dir <path>" << std::endl;
-        exit(1);
+        return 1;
     }
     fs::path dir{"."};
     if (argc == 2) {

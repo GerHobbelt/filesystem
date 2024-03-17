@@ -31,7 +31,7 @@ int main(int argc, const char** argv)
 #endif
     if(argc > 2) {
         std::cerr << "USAGE: du <path>" << std::endl;
-        exit(1);
+        return 1;
     }
     fs::path dir{"."};
     if(argc == 2) {
@@ -60,7 +60,7 @@ int main(int argc, const char** argv)
     }
     catch(fs::filesystem_error fe) {
         std::cerr << "Error: " << fe.what() << std::endl;
-        exit(1);
+        return 1;
     }
     std::cout << totalSize << " bytes in " << totalFiles << " files and " << totalDirs << " directories, maximum depth: " << maxDepth << std::endl;
     return 0;
