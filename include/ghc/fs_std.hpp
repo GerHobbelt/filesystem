@@ -32,7 +32,7 @@
 #ifndef GHC_FILESYSTEM_STD_H
 #define GHC_FILESYSTEM_STD_H
 
-#if _MSVC_LANG >= 201703L || __cplusplus >= 201703L && defined(__has_include) || defined(GHC_DO_NOT_USE_STD_FS)
+#if (_MSVC_LANG >= 201703L || __cplusplus >= 201703L && defined(__has_include)) && !defined(GHC_DO_NOT_USE_STD_FS)
     // ^ Supports MSVC prior to 15.7 without setting /Zc:__cplusplus to fix __cplusplus
     // _MSVC_LANG works regardless. But without the switch, the compiler always reported 199711L: https://blogs.msdn.microsoft.com/vcblog/2018/04/09/msvc-now-correctly-reports-__cplusplus/
     #if __has_include(<filesystem>) // Two stage __has_include needed for MSVC 2015 and per https://gcc.gnu.org/onlinedocs/cpp/_005f_005fhas_005finclude.html
@@ -64,14 +64,16 @@
         using ofstream = std::ofstream;
         using fstream = std::fstream;
     }
+    #undef GHC_USE_GHC_FS      // the inverse signal to GHC_USE_STD_FS, set up here so userland code can check either
 #else
-    #include "filesystem.hpp"
+    #include <ghc/filesystem.hpp>
     namespace fs {
         using namespace ghc::filesystem;
         using ifstream = ghc::filesystem::ifstream;
         using ofstream = ghc::filesystem::ofstream;
         using fstream = ghc::filesystem::fstream;
     }
+    #define GHC_USE_GHC_FS      // the inverse signal to GHC_USE_STD_FS, set up here so userland code can check either
 #endif
 
 #endif // GHC_FILESYSTEM_STD_H

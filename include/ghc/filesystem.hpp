@@ -28,8 +28,6 @@
 #ifndef GHC_FILESYSTEM_H
 #define GHC_FILESYSTEM_H
 
-
-
 #ifdef GHC_OS_CUSTOM
 #define GHC_OS_DETECTED
 #endif
