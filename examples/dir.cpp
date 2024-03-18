@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 
-#if defined(__cplusplus) && __cplusplus >= 201703L && defined(__has_include)
+#if defined(__cplusplus) && __cplusplus >= 201703L && defined(__has_include) || defined(GHC_DO_NOT_USE_STD_FS)
 #if __has_include(<filesystem>)
 #define GHC_USE_STD_FS
 #include <filesystem>
@@ -14,6 +14,9 @@ namespace fs = std::filesystem;
 #include <ghc/filesystem.hpp>
 namespace fs = ghc::filesystem;
 #endif
+
+#include "monolithic_examples.h"
+
 
 template <typename TP>
 std::time_t to_time_t(TP tp)
@@ -54,7 +57,7 @@ int main(int argc, const char** argv)
     }
     fs::path dir{"."};
     if (argc == 2) {
-        dir = fs::u8path(argv[1]);
+		dir = (const char8_t *)(argv[1]);
     }
     for (auto de : fs::directory_iterator(dir)) {
         auto ft = to_time_t(de.last_write_time());

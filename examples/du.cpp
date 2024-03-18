@@ -2,7 +2,7 @@
 #include <iomanip>
 #include <chrono>
 
-#if defined(__cplusplus) && __cplusplus >= 201703L && defined(__has_include)
+#if defined(__cplusplus) && __cplusplus >= 201703L && defined(__has_include) && !defined(GHC_DO_NOT_USE_STD_FS)
 #if __has_include(<filesystem>)
 #define GHC_USE_STD_FS
 #include <filesystem>
@@ -14,6 +14,7 @@ namespace fs = std::filesystem;
 namespace fs = ghc::filesystem;
 #endif
 
+#include "monolithic_examples.h"
 
 
 #if defined(BUILD_MONOLITHIC)
@@ -35,7 +36,7 @@ int main(int argc, const char** argv)
     }
     fs::path dir{"."};
     if(argc == 2) {
-        dir = fs::path(std::u8string(argv[1]));
+        dir = fs::path((const char8_t *)(argv[1]));
     }
 
     uint64_t totalSize = 0;
