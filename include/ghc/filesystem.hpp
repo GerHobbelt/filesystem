@@ -147,6 +147,8 @@
 #include <sys/types.h>
 #include <wchar.h>
 #include <winioctl.h>
+#undef min
+#undef max
 #else
 #include <dirent.h>
 #include <fcntl.h>
