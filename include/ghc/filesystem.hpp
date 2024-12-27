@@ -287,6 +287,7 @@
 // std::string as backend and for fs::path::native() and char for fs::path::c_str(). This
 // needs more conversions, so it is (and was before v1.5) slower, bot might help keeping source
 // homogeneous in a multi-platform project.
+// 
 // #define GHC_WIN_DISABLE_WSTRING_STORAGE_TYPE
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // Raise errors/exceptions when invalid unicode codepoints or UTF-8 sequences are found,
