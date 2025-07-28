@@ -36,6 +36,7 @@ static std::string perm_to_str(fs::perms prms)
 #define main(cnt, arr)      fs_dir_main(cnt, arr)
 #endif
 
+extern "C"
 int main(int argc, const char** argv)
 {
 #ifdef GHC_FILESYSTEM_VERSION

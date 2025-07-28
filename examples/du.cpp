@@ -15,6 +15,7 @@
 #define main(cnt, arr)      fs_du_main(cnt, arr)
 #endif
 
+extern "C"
 int main(int argc, const char** argv)
 {
 #ifdef GHC_FILESYSTEM_VERSION
