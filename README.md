@@ -2,7 +2,7 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 [![CMake Build Matrix](https://github.com/GerHobbelt/filesystem/actions/workflows/build_cmake.yml/badge.svg?branch=master)](https://github.com/GerHobbelt/filesystem/actions/workflows/build_cmake.yml)
 [![Build Status](https://ci.appveyor.com/api/projects/status/t07wp3k2cddo0hpo/branch/master?svg=true)](https://ci.appveyor.com/project/GerHobbelt/filesystem)
-[![Build Status](https://api.cirrus-ci.com/github/GerHobbelt/filesystem.svg?branch=master)](https://cirrus-ci.com/github/GerHobbelt/filesystem)
+<!-- [![Build Status](https://api.cirrus-ci.com/github/GerHobbelt/filesystem.svg?branch=master)](https://cirrus-ci.com/github/GerHobbelt/filesystem) -->
 [![Coverage Status](https://coveralls.io/repos/github/GerHobbelt/filesystem/badge.svg?branch=master)](https://coveralls.io/github/GerHobbelt/filesystem?branch=master)
 [![Latest Release Tag](https://img.shields.io/github/tag/GerHobbelt/filesystem.svg)](https://github.com/GerHobbelt/filesystem/tree/v1.5.14)
 <!-- [![Build Status](https://cloud.drone.io/api/badges/GerHobbelt/filesystem/status.svg?ref=refs/heads/master)](https://cloud.drone.io/GerHobbelt/filesystem) -->
