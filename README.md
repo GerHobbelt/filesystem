@@ -621,6 +621,10 @@ ASSERT(p1 == p2);
 For all non-host-leading paths the behavior will match the one described by
 the standard.
 
+For a more extensive example see https://godbolt.org/z/TcTjhch4Y, where multiple compilers 
+and UNIX vs. Windows behaviours of both `std::filesystem::path` and `ghc::filesystem::path` 
+are demonstrated.
+
 
 ## Open Issues
 
