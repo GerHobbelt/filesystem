@@ -29,7 +29,7 @@
     * [Differences in API](#differences-in-api)
       * [Differences of Specific Interfaces](#differences-of-specific-interfaces)
     * [Differences in Behavior](#differences-in-behavior)
-      * [fs.path (ref)](#fspath--ref-)
+      * [fs.path (ref)](#fspath-ref)
   * [Open Issues](#open-issues)
     * [Windows](#windows)
       * [Symbolic Links on Windows](#symbolic-links-on-windows)
